@@ -11,13 +11,19 @@ _Working with Musicbrainz api Xml version ([MusicBrainz Xml API Version 2](https
 
 Instructions:
 
- ```
- mkdir mb_api_porting
- ```
+```
+mkdir mb_api_porting
+```
  
-``` cd mb_api_porting```
+ 
+``` 
+cd mb_api_porting
 
-```virtualenv -p /usr/bin/python3.5 MB_API_PORTING_ENV
+``` 
+
+```
+virtualenv -p /usr/bin/python3.5 MB_API_PORTING_ENV
+
 ```
 
 ```
