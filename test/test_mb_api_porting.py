@@ -18,6 +18,10 @@ class TestServer(unittest.TestCase):
         response = self.client.get('/')
         assert response.status_code == 200
 
+    def test_get_home(self):
+        response = self.client.get('/undefined')
+        assert response.status_code == 404
+
     def tearDown(self):
         pass
 
