@@ -1,4 +1,4 @@
-# Music Brain API Porting
+# MusicBrainz API Porting
 
 _Working with Musicbrainz api Xml version ([MusicBrainz Xml API Version 2](https://musicbrainz.org/doc/Development/XML_Web_Service/Version_2))
  in order to retrieve JSON format._
@@ -15,8 +15,7 @@ Instructions:
  mkdir mb_api_porting
  ```
  
-```cd mb_api_porting
-```
+``` cd mb_api_porting```
 
 ```virtualenv -p /usr/bin/python3.5 MB_API_PORTING_ENV
 ```
