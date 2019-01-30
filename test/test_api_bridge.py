@@ -23,6 +23,12 @@ class TestBridge(unittest.TestCase):
         assert artist['artist']['name'] == 'Metallica'
         assert artist['artist']['begin-area']['name'] == "Los Angeles"
 
+    def test_get_release_group(self):
+        release_group = self.api_bridge.get_release_group("65f4f0c5-ef9e-490c-aee3-909e7ae6b2ab", 10)
+        assert len(release_group['release-group-list']) == 10
+        assert release_group['release-group-list'][0]['title'] == "Ride the Lightning"
+        assert release_group['release-group-list'][0]['type'] == "Album"
+        
     def tearDown(self):
         pass
 
