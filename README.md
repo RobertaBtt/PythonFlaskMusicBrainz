@@ -26,13 +26,26 @@ virtualenv -p /usr/bin/python3.5 MB_API_PORTING_ENV
 
 ```
 
+Create the virtual env ONCE
+
 ```
 source MB_API_PORTING_ENV/bin/activate
 ```
 
+
 And you will find yourself in the virtual environment, ready to get the corret dependencies
 without influencing other python installation and environments.
 
+
+
+**Install the requirements for this virtual env for this project:**
+
+```
+pip install -r requirements.txt
+```
+
+
+---
 
 To deactivate the virtual env:
 
