@@ -20,4 +20,7 @@ class APIBridge():
     def get_release_group(self, artist_id, limit=None, offset=None):
         return musicbrainzngs.browse_release_groups(artist_id, None, [], [], limit, offset)
 
+    def get_release_group_album_type(self, artist_id, limit=None, offset=None):
+        return musicbrainzngs.browse_release_groups(artist_id, None, ['album'], [], limit, offset)
+
 

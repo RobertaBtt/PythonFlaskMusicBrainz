@@ -8,7 +8,12 @@ import json
 
 class TestBridge(unittest.TestCase):
 
+    Metallica = "65f4f0c5-ef9e-490c-aee3-909e7ae6b2ab"
+    Coldplay = "cc197bad-dc9c-440d-a5b5-d52ba2e14234"
+
     def setUp(self):
+
+
         hostname = "musicbrainz.org"
         app = "python-musicbrainz-porting"
         version = "0.1"
@@ -24,11 +29,15 @@ class TestBridge(unittest.TestCase):
         assert artist['artist']['begin-area']['name'] == "Los Angeles"
 
     def test_get_release_group(self):
-        release_group = self.api_bridge.get_release_group("65f4f0c5-ef9e-490c-aee3-909e7ae6b2ab", 10)
+        release_group = self.api_bridge.get_release_group(TestBridge.Metallica, 10)
         assert len(release_group['release-group-list']) == 10
         assert release_group['release-group-list'][0]['title'] == "Ride the Lightning"
         assert release_group['release-group-list'][0]['type'] == "Album"
-        
+
+    def test_get_release_group_type_album(self):
+        release_group = self.api_bridge.get_release_group_album_type(TestBridge.Coldplay, 10)
+        assert release_group['release-group-list'][0]['title'] == "A Rush of Blood to the Head"
+
     def tearDown(self):
         pass
 
