@@ -61,7 +61,7 @@ From the directory *mb_api_porting*
 run:
 
 ```
-FLASK_APP=musicbrainz_api_porting/musicbrainz_api_porting.py flask run
+FLASK_APP=musicbrainz_api_porting/FleskApp.py flask run
 ```
 
 And then visit http://127.0.0.1:5000/  (depending on your local config file, that you are free to change)
