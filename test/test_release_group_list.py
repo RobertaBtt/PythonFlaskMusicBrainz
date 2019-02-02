@@ -1,7 +1,7 @@
 __author__ = 'RobertaBtt'
 
 import unittest
-from musicbrainz_api_porting import musicbrainz_api_porting
+from musicbrainz_api_porting import FleskApp
 from musicbrainz_api_porting import ReleaseGroupList
 import json
 

@@ -5,12 +5,10 @@ import simplejson
 import json
 
 class APIBridge():
-    def __init__(self, hostname, app, version,contact,  format='xml'):
+    def __init__(self, hostname, app, version, contact,  format='xml'):
         # https://musicbrainz.org/ws/2/
 
         musicbrainzngs.set_useragent(app, version, contact)
-
-        # musicbrainzngs.set_useragent(app, version, contact=None)
         musicbrainzngs.set_hostname(hostname)
         musicbrainzngs.set_format(format)
 
