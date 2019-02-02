@@ -22,9 +22,19 @@ class TestServer(unittest.TestCase):
         response = self.client.get('/undefined')
         assert response.status_code == 404
 
-    def test_release_group_artist(self):
-        response = self.client.get('/releasegroup/65f4f0c5-ef9e-490c-aee3-909e7ae6b2ab/')
+    def test_get_last_twelve(self):
+        limit = 12
+        offset = 10
+        response = self.client.get('/releasegroup/65f4f0c5-ef9e-490c-aee3-909e7ae6b2ab/'+str(limit) +'/'+ str(offset))
         assert response.status_code == 200
+        assert len(json.loads(response.get_data().decode('utf-8'))['release-group-list']) == 12
+        assert json.loads(response.get_data().decode('utf-8'))['release-group-list'][2]['title'] == 'Lulu'
+
+    def test_get_all(self):
+        Maneskin = '3862342a-43c4-4cdb-8250-bfdbfb5e1419'
+        response = self.client.get('/releasegroup/' + Maneskin + '/')
+        assert response.status_code == 200
+        assert len(json.loads(response.get_data().decode('utf-8'))['release-group-list']) == 4
 
     def tearDown(self):
         pass

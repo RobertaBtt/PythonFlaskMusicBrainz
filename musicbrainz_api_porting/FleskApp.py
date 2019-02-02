@@ -17,19 +17,13 @@ def home():
     )
     return response
 
+
 @app.route("/releasegroup/<artistid>/")
-def release_group_artist(artistid):
+def release_group_artist_no_limit(artistid):
 
-    hostname = MusicbrainzPortingConfig.MusicbrainzPortingConfig.get_confi_by_key('hostname')
-    app_string = MusicbrainzPortingConfig.MusicbrainzPortingConfig.get_confi_by_key('app')
-    version = MusicbrainzPortingConfig.MusicbrainzPortingConfig.get_confi_by_key('version')
-    format = MusicbrainzPortingConfig.MusicbrainzPortingConfig.get_confi_by_key('format')
-    contact = MusicbrainzPortingConfig.MusicbrainzPortingConfig.get_confi_by_key('contact')
+    api_bridge = APIBridge.APIBridge(_get_hostname(), _get_app_name(), _get_version(), _get_contact(), _get_format())
 
-    api_bridge = APIBridge.APIBridge(hostname, app_string, version, contact, format)
-
-    result = api_bridge.get_release_group(artistid, 1)
-    print (result)
+    result = api_bridge.get_release_group(artistid, None, None)
 
     response = app.response_class(
         response=json.dumps(result),
@@ -37,3 +31,39 @@ def release_group_artist(artistid):
         mimetype='application/json'
     )
     return response
+
+@app.route("/releasegroup/<artistid>/<limit>/<offset>")
+def release_group_artist(artistid, limit, offset):
+
+    api_bridge = APIBridge.APIBridge(_get_hostname(), _get_app_name(), _get_version(), _get_contact(), _get_format())
+
+    result = api_bridge.get_release_group(artistid, limit, offset)
+
+    response = app.response_class(
+        response=json.dumps(result),
+        status=200,
+        mimetype='application/json'
+    )
+    return response
+
+staticmethod
+def _get_hostname():
+    return MusicbrainzPortingConfig.MusicbrainzPortingConfig.get_confi_by_key('hostname')
+
+
+staticmethod
+def _get_app_name():
+    return MusicbrainzPortingConfig.MusicbrainzPortingConfig.get_confi_by_key('app')
+
+staticmethod
+def _get_version():
+    return MusicbrainzPortingConfig.MusicbrainzPortingConfig.get_confi_by_key('version')
+
+
+staticmethod
+def _get_format():
+    return MusicbrainzPortingConfig.MusicbrainzPortingConfig.get_confi_by_key('format')
+
+staticmethod
+def _get_contact():
+    return MusicbrainzPortingConfig.MusicbrainzPortingConfig.get_confi_by_key('contact')
