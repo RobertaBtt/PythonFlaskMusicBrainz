@@ -65,3 +65,16 @@ FLASK_APP=musicbrainz_api_porting/FleskApp.py flask run
 ```
 
 And then visit http://127.0.0.1:5000/  (depending on your local config file, that you are free to change)
+
+To retrieve reliese of an artist use:
+http://127.0.0.1:5000/artistid
+
+To use limit and offset:
+http://127.0.0.1:5000/artist_id/limit/offset
+
+example: http://localhost:5000/releasegroup/3862342a-43c4-4cdb-8250-bfdbfb5e1419/4/0
+limit of 4 release-group starting by 0
+
+artist id is an uuid sequence that identify an artist in the MusicBrainz database
+
+
