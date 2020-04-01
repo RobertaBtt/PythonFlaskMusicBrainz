@@ -1,8 +1,8 @@
 __author__ = 'RobertaBtt'
 
 from flask import Flask, json
-from musicbrainz_api_porting import MusicbrainzPortingConfig
-from musicbrainz_api_porting import APIBridge
+from . import MusicbrainzPortingConfig
+from . import APIBridge
 
 app = Flask(__name__)
 

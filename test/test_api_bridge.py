@@ -1,19 +1,14 @@
 __author__ = 'RobertaBtt'
 
 import unittest
-from musicbrainz_api_porting import FleskApp
-from musicbrainz_api_porting import APIBridge
-
-import json
+from ..musicbrainz_api_porting import APIBridge
 
 class TestBridge(unittest.TestCase):
 
     Metallica = "65f4f0c5-ef9e-490c-aee3-909e7ae6b2ab"
     Coldplay = "cc197bad-dc9c-440d-a5b5-d52ba2e14234"
 
-
     def setUp(self):
-
 
         hostname = "musicbrainz.org"
         app = "python-musicbrainz-porting"
