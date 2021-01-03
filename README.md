@@ -5,7 +5,7 @@ _Working with Musicbrainz api Xml version ([MusicBrainz Xml API Version 2](https
 
 
 
-![logo](https://staticbrainz.org/MB/images/layout/header-logo-791fb3f5ca.svg)
+![logo](https://commons.wikimedia.org/wiki/File:MusicBrainz_logo_2016.svg)
 
 
 
